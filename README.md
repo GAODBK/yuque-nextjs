@@ -209,3 +209,36 @@ pnpm i sass
 ```
 
 todo: 首页从数据库读数据, 知识库首页sidebar面包屑
+
+### 启动这个 Next.js 项目步骤
+
+#### 1. **安装依赖**
+如果你还没安装依赖，请先执行：
+```sh
+pnpm install
+```
+
+#### 2. **设置数据库（如果使用 Prisma）**
+如果项目使用了 Prisma 并连接 MySQL，请先初始化数据库：
+```sh
+pnpm dlx prisma@5 generate
+pnpm dlx prisma@5 db push
+```
+
+如果 `.env` 文件不存在，请创建一个，并配置数据库连接信息：
+```env
+DATABASE_URL="mysql://ygl:987654321@localhost:3306/bookstore?charset=utf8"
+```
+
+#### 3. **运行开发服务器**
+```sh
+pnpm run dev
+```
+如果 `package.json` 里有 `scripts.dev.ps1` 相关内容，你也可以直接运行：
+```sh
+./scripts/dev.ps1
+```
+（Windows PowerShell 运行时需要 `Set-ExecutionPolicy RemoteSigned`）
+
+#### 4. **访问项目**
+默认情况下，Next.js 开发服务器会在 [http://localhost:3000](http://localhost:3000) 运行。
